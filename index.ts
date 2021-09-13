@@ -36,7 +36,7 @@ class Chain {
   chain: Block[];
 
   constructor() {
-    this.chain = [new Block(null, new Transaction(1000, 'genesis', 'first one'))]
+    this.chain = [new Block(null, new Transaction(1000, 'genesis', 'gabriel'))]
   }
 
   get lastBlock() {
@@ -67,6 +67,7 @@ class Chain {
 
     if (isValid) {
       const newBlock = new Block(this.lastBlock.hash, transaction);
+      this.mine(newBlock.nonce);
       this.chain.push(newBlock);
     }
   }
@@ -96,3 +97,16 @@ class Wallet {
     Chain.instance.addBlock(transaction, this.publicKey, signature);
   }
 }
+
+
+// usage in action
+
+const gabriel = new Wallet();
+const jon = new Wallet();
+const maria = new Wallet();
+
+gabriel.sendMoney(50, jon.publicKey);
+jon.sendMoney(10, maria.publicKey);
+maria.sendMoney(5, jon.publicKey);
+
+console.log(Chain.instance);
