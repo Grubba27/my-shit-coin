@@ -3,7 +3,7 @@ import Chain from "./classes/Chain";
 
 
 // usage in action
-
+console.log(Chain.instance);
 const gabriel = new Wallet();
 const jon = new Wallet();
 const maria = new Wallet();

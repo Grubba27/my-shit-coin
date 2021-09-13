@@ -24,5 +24,6 @@ export default class Wallet {
 
     const signature = sign.sign(this.privateKey);
     Chain.instance.addBlock(transaction, this.publicKey, signature);
+    console.log(`A instancia atual da chain é: ${Chain.instance} e a pk é ${this.publicKey}`);
   }
 }

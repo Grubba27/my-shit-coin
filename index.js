@@ -6,6 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const Wallet_1 = __importDefault(require("./classes/Wallet"));
 const Chain_1 = __importDefault(require("./classes/Chain"));
 // usage in action
+console.log(Chain_1.default.instance);
 const gabriel = new Wallet_1.default();
 const jon = new Wallet_1.default();
 const maria = new Wallet_1.default();
